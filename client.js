@@ -36,6 +36,8 @@ const piglatinifyWholeSentence = array => {
     //turn the p.l. array into a string, including a space between each word, and store it.
     pigLatinString = pigLatinArray.join(" ");   
     
+    //todo - capitalize first letter of the sentence?
+
     //return the resulting string
     return pigLatinString;
 }
@@ -73,8 +75,10 @@ let piglatinifiedSentence = piglatinifyWholeSentence(arrayfiedSentence);
 console.log(piglatinifiedSentence);
 
 
-
-
-
+//todo more stretch goals: 
+//user input! 
+//allow user to input a string with prompt
+//disallow any punctuation
+//return the result as an alert, or maybe on HTML
 
 
