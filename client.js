@@ -36,7 +36,7 @@ const piglatinifyWholeSentence = array => {
     //turn the p.l. array into a string, including a space between each word, and store it.
     pigLatinString = pigLatinArray.join(" ");   
     
-    //todo - capitalize first letter of the sentence?
+    //todo - add logic here to capitalize first letter of the sentence?
 
     //return the resulting string
     return pigLatinString;
@@ -56,7 +56,10 @@ const pigLatinWordConverter = inputWord => {
     //add firstLetter and 'ay' to end of restOfWord
     let pigLatin = restOfWord.concat(firstLetter, `ay`);
 
-    //todo - this does not include special case where word begins with vowel - then we add "way" instead of "ay"
+    //todo - this does not include special case where word begins with vowel - 
+    //according to a pig latin dictionary we found, then we add "way" instead of "ay"
+    //e.g. and -> andway in piglatin
+    //so, the todo would be to add logic for that here. 
 
     //return the resulting "piglatin-afied word"
     return pigLatin;
@@ -66,7 +69,10 @@ const pigLatinWordConverter = inputWord => {
 //{Finally, use all the above code} 
 
 //start by inputting a sentence
-let sentence = `Dunkin Donuts has coffee and some mediocre donuts`;
+let sentence = `Dunkin Donuts has coffee and some mediocre donuts`; 
+//todo change this to a prompt so user can input their own sentence
+//todo - also make sure punctuatuon is not allowed (if contatins punctuation, ask user to try again?)
+
 //turn that into an array of words
 let arrayfiedSentence = turnStringSentenceIntoArray(sentence);
 //piglatinify that array
@@ -76,9 +82,6 @@ console.log(piglatinifiedSentence);
 
 
 //todo more stretch goals: 
-//user input! 
-//allow user to input a string with prompt
-//disallow any punctuation
-//return the result as an alert, or maybe on HTML
-
+//add some nice CSS - background color? pig image?? fonts?
+//and more HTMl header/p tags to clarify what this app is/does
 
