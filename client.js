@@ -88,7 +88,6 @@ const getSentence = () => {
     }
 }
 
-
 //start by inputting a sentence 
 let sentence = getSentence();
 
