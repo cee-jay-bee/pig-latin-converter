@@ -81,14 +81,14 @@ const pigLatinWordConverter = inputWord => {
 
 //{Finally, use all the above code} 
 
-//todo change this to a prompt so user can input their own sentence
+//display a prompt asking for user to input a sentence
 const getSentence = () => {
     if (confirm('Ready to learn Pig Latin?')){
         return prompt(`What sentence do you want to translate? (no punctuation)`);
     }
 }
 
-//start by inputting a sentence 
+//user's sentence
 let sentence = getSentence();
 
 //todo - also make sure punctuatuon is not allowed (if contains punctuation, ask user to try again?)
@@ -97,8 +97,9 @@ let sentence = getSentence();
 let arrayfiedSentence = turnStringSentenceIntoArray(sentence);
 //piglatinify that array
 let piglatinifiedSentence = piglatinifyWholeSentence(arrayfiedSentence);
-//log the result
-console.log(piglatinifiedSentence);
+
+//show the result to user in an alert
+alert(piglatinifiedSentence);
 
 
 //todo more stretch goals: 
