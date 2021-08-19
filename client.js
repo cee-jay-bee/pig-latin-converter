@@ -41,45 +41,102 @@ const piglatinifyWholeSentence = array => {
     //turn the p.l. array into a string, including a space between each word, and store it.
     pigLatinString = pigLatinArray.join(" ");   
     
-    //todo - add logic here to capitalize first letter of the sentence?
+    //add logic here to capitalize first letter of the sentence?
     pigLatinString = pigLatinString[0].toUpperCase() + pigLatinString.slice(1);
 
     //return the resulting string
     document.getElementById('pigLatinOutput').innerHTML = pigLatinString;
-    // pigLatinOutput.innerHTML = pigLatinString;
+    
 }
 
 //{thing 2b} : function that turns individual words into piglatin (move first letter to end, add "ay")
 const pigLatinWordConverter = inputWord => {
     //make all letters lowercase
     inputWord = inputWord.toLowerCase();
-    let vowels = `aeiou`;
+    let vowels = `uoiea`;
+    let punctuation = `.!?,`;
+    punctuation = punctuation.split('');
+    let rawPork = inputWord;
 
-    //logic for adding 'way to word if it starts with vowel
     for (let i = 0; i < vowels.length; i++){
         //check to see if the first letter matches any vowel
         if (inputWord[0] === vowels[i]){
             //add 'way' to the inputWord if there is a match
-            return inputWord.concat('way');
-        }
-
-        if (inputWord[1] === vowels[i]){
-            //if firstLetter is not any vowel, but the second letter is, take first letter out and store in variable
-            let firstLetter = inputWord.slice(0,1);
-            //slice out rest of word and store in variable
-            let restOfWord = inputWord.slice(1);
-            //add firstLetter and 'ay' to end of restOfWord and return word
-            return restOfWord.concat(firstLetter, `ay`);
+            rawPork = inputWord.concat('way');
+            console.log(rawPork);
         }
     }
-    //if first two letters are not vowels, take first two letters out and store in variable    
-    let firstTwoLetters = inputWord.slice(0,2);
+    let originalLength = rawPork.length;
+    for (let i = 0; i < originalLength; i++){
+        for(let j = 0; j < vowels.length; j++){
+            if (rawPork[i] === vowels[j]){
+                let lettersBeforeVowel = rawPork.slice(0, i);
+                let lettersAfterVowel = rawPork.slice(i);
+                rawPork = lettersAfterVowel.concat(lettersBeforeVowel, 'ay');
+                console.log(rawPork);
+                break;
+                
+            }
+        }
+    }
 
-    //slice out rest of word and store in variable
-    let wordLessFirstTwo = inputWord.slice(2);
+    // if (inputWord[1] === vowels[i]){
+    //     //if firstLetter is not any vowel, but the second letter is, take first letter out and store in variable
+    //     let firstLetter = inputWord.slice(0,1);
+    //     //slice out rest of word and store in variable
+    //     let restOfWord = inputWord.slice(1);
+    //     //add firstLetter and 'ay' to end of restOfWord and return word
+    //     pigLatinWithoutPunctuation = restOfWord.concat(firstLetter, `ay`);
+    // } 
+    
+    // if (inputWord[0] !== vowels[i] && inputWord[1] !== vowels )
+    //     //if first two letters are not vowels, take first two letters out and store in variable    
+    //     let firstTwoLetters = inputWord.slice(0,2);
 
-    //add first two letters to end of the rest of the word and 'ay' to the end
-    return wordLessFirstTwo.concat(firstTwoLetters, 'ay');
+    //     //slice out rest of word and store in variable
+    //     let wordLessFirstTwo = inputWord.slice(2);
+
+    //     //add first two letters to end of the rest of the word and 'ay' to the end
+    //     pigLatinWithoutPunctuation = wordLessFirstTwo.concat(firstTwoLetters, 'ay');
+
+    let cookedPork = rawPork;
+    //loop through for punctuation
+    for (let i = 0; i < rawPork.length; i++){
+        for(let j = 0; j < punctuation.length; j++){
+            
+            if(rawPork[i] === punctuation[j]){
+
+                rawPork = rawPork.split('');
+
+                let splicedPunctuation = rawPork.splice(i, 1);
+
+                rawPork.push(splicedPunctuation);
+
+                cookedPork = rawPork.join('');
+                console.log(cookedPork);
+            }
+        }
+    } return cookedPork;
+
+
+    //logic for adding 'way to word if it starts with vowel
+    // for (let i = 0; i < vowels.length; i++){
+    //     //check to see if the first letter matches any vowel
+    //     if (inputWord[0] === vowels[i]){
+    //         //add 'way' to the inputWord if there is a match
+    //         return inputWord.concat('way');
+    //     }
+
+    //     if (inputWord[1] === vowels[i]){
+    //         //if firstLetter is not any vowel, but the second letter is, take first letter out and store in variable
+    //         let firstLetter = inputWord.slice(0,1);
+    //         //slice out rest of word and store in variable
+    //         let restOfWord = inputWord.slice(1);
+    //         //add firstLetter and 'ay' to end of restOfWord and return word
+    //         return restOfWord.concat(firstLetter, `ay`);
+    //     }
+    // }
+    
 
 }
 
