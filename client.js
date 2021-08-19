@@ -58,27 +58,25 @@ const pigLatinWordConverter = inputWord => {
     punctuation = punctuation.split('');
     let rawPork = inputWord;
 
-    for (let i = 0; i < vowels.length; i++){
-        //check to see if the first letter matches any vowel
-        if (inputWord[0] === vowels[i]){
-            //add 'way' to the inputWord if there is a match
-            rawPork = inputWord.concat('way');
-            console.log(rawPork);
-        }
-    }
-    let originalLength = rawPork.length;
-    for (let i = 0; i < originalLength; i++){
-        for(let j = 0; j < vowels.length; j++){
-            if (rawPork[i] === vowels[j]){
+    //check to see if the first letter matches any vowel
+    if (rawPork[0] === 'a' || rawPork[0] === 'e' || rawPork[0] === 'i' || rawPork[0] === 'o' || rawPork[0] === 'u'){
+        //add 'way' to the inputWord if there is a match
+        rawPork = inputWord.concat('way');
+        console.log(rawPork);
+    } else {
+        let originalLength = rawPork.length;
+        for (let i = 0; i < originalLength; i++){
+            if (rawPork[i] === 'a' || rawPork[i] === 'e' || rawPork[i] === 'i' || rawPork[i] === 'o' || rawPork[i] === 'u'){
                 let lettersBeforeVowel = rawPork.slice(0, i);
                 let lettersAfterVowel = rawPork.slice(i);
                 rawPork = lettersAfterVowel.concat(lettersBeforeVowel, 'ay');
                 console.log(rawPork);
-                break;
-                
+                break;  
             }
         }
     }
+    
+    
 
     // if (inputWord[1] === vowels[i]){
     //     //if firstLetter is not any vowel, but the second letter is, take first letter out and store in variable
