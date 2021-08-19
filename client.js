@@ -52,11 +52,10 @@ const piglatinifyWholeSentence = array => {
 //{thing 2b} : function that turns individual words into piglatin (move first letter to end, add "ay")
 const pigLatinWordConverter = inputWord => {
     //make all letters lowercase
-    inputWord = inputWord.toLowerCase();
-    let vowels = `uoiea`;
+    let rawPork = inputWord.toLowerCase();
     let punctuation = `.!?,`;
     punctuation = punctuation.split('');
-    let rawPork = inputWord;
+
 
     //check to see if the first letter matches any vowel
     if (rawPork[0] === 'a' || rawPork[0] === 'e' || rawPork[0] === 'i' || rawPork[0] === 'o' || rawPork[0] === 'u'){
