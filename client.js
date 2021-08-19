@@ -1,8 +1,11 @@
 //{thing 1} : function that turns a sentence string into an array of individual words
-const turnStringSentenceIntoArray = sentence => {
+const turnStringSentenceIntoArray = () => {
     const space = ` `;
     let arrayOfSpaceIndices = []; 
     let arrayOfWords = [];
+    let sentence = document.getElementById('pigLatinInput').value;
+    console.log(sentence);
+    
 
     // create an array that will store the spaces indices
     for (let i = 0; i < sentence.length; i++){
@@ -18,9 +21,9 @@ const turnStringSentenceIntoArray = sentence => {
     for (let i = 0; i < arrayOfSpaceIndices.length; i++){
         arrayOfWords.push(sentence.slice(arrayOfSpaceIndices[i] + 1, arrayOfSpaceIndices[i+1])); //slice from 1st space to 2nd space (then 2nd to 3rd, then 3rd to 4th... finally last space to end)
     } 
-   
+    
     //return the resulting array of words
-    return arrayOfWords;
+    return piglatinifyWholeSentence(arrayOfWords);
     
 }
 
@@ -28,6 +31,7 @@ const turnStringSentenceIntoArray = sentence => {
 const piglatinifyWholeSentence = array => {
     let pigLatinArray = [];
     let pigLatinString;
+    console.log('hi');
 
     //put each word from the array through the pigLatinWordConverter, and push the result into the new array pigLatinArray
     for (let words of array){
@@ -41,7 +45,8 @@ const piglatinifyWholeSentence = array => {
     pigLatinString = pigLatinString[0].toUpperCase() + pigLatinString.slice(1);
 
     //return the resulting string
-    return pigLatinString;
+    document.getElementById('pigLatinOutput').innerHTML = pigLatinString;
+    // pigLatinOutput.innerHTML = pigLatinString;
 }
 
 //{thing 2b} : function that turns individual words into piglatin (move first letter to end, add "ay")
@@ -78,28 +83,6 @@ const pigLatinWordConverter = inputWord => {
 
 }
 
-
-//{Finally, use all the above code} 
-
-//display a prompt asking for user to input a sentence
-const getSentence = () => {
-    if (confirm('Ready to learn Pig Latin?')){
-        return prompt(`What sentence do you want to translate? (no punctuation)`);
-    }
-}
-
-//user's sentence
-let sentence = getSentence();
-
-//todo - also make sure punctuatuon is not allowed (if contains punctuation, ask user to try again?)
-
-//turn that into an array of words
-let arrayfiedSentence = turnStringSentenceIntoArray(sentence);
-//piglatinify that array
-let piglatinifiedSentence = piglatinifyWholeSentence(arrayfiedSentence);
-
-//show the result to user in an alert
-alert(piglatinifiedSentence);
 
 
 //todo more stretch goals: 
