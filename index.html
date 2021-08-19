@@ -8,6 +8,11 @@
 </head>
 <body>
     <h1>Pig Latin Converter &#128055</h1>
+    <h2 class='pigLatinInputLabel'>What do you want to learn how to say in Pig Latin?</h2>
+    <input type='text' id='pigLatinInput' name='pigLatinInput' value='Pig Latin'><br>
+    <h2>Here is your Pig Latin:</h2>
+    <h3 id='pigLatinOutput'></h3>
+    <button type='button' id='pigLatinButton' onclick='turnStringSentenceIntoArray()'>Create Pig Latin</button>
 
     <!-- moved script source to body so that popups begin after page title has a chance to load -->
     <script src="client.js"></script>
