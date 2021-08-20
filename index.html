@@ -4,15 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap" rel="stylesheet">
+
     <title>Want to speak Pig Latin?</title>
 </head>
 <body>
     <h1>Pig Latin Converter &#128055</h1>
     <h2 class='pigLatinInputLabel'>What do you want to learn how to say in Pig Latin?</h2>
-    <input type='text' id='pigLatinInput' name='pigLatinInput' value='Pig Latin'><br>
+    <input type='text' id='pigLatinInput' name='pigLatinInput' value='Pig Latin'>
+    <br><br>
+    <button type='button' id='pigLatinButton' onclick='beginPigLatin()'>Oink</button>
+    <br><br>
     <h2>Here is your Pig Latin:</h2>
     <h3 id='pigLatinOutput'></h3>
-    <button type='button' id='pigLatinButton' onclick='turnStringSentenceIntoArray()'>Create Pig Latin</button>
 
     <!-- moved script source to body so that popups begin after page title has a chance to load -->
     <script src="client.js"></script>

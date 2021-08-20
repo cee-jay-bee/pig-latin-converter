@@ -1,10 +1,16 @@
+const beginPigLatin = () => {
+    let sentence = document.getElementById('pigLatinInput').value;
+
+    let arrayifiedSentence = turnStringSentenceIntoArray(sentence);    
+    piglatinifyWholeSentence(arrayifiedSentence);
+}
+
 //{thing 1} : function that turns a sentence string into an array of individual words
-const turnStringSentenceIntoArray = () => {
+const turnStringSentenceIntoArray = (sentence) => {
     const space = ` `;
     let arrayOfSpaceIndices = []; 
     let arrayOfWords = [];
-    let sentence = document.getElementById('pigLatinInput').value;
-    console.log(sentence);
+   // console.log(sentence);
     
 
     // create an array that will store the spaces indices
@@ -24,7 +30,6 @@ const turnStringSentenceIntoArray = () => {
     
     //return the resulting array of words
     return piglatinifyWholeSentence(arrayOfWords);
-    
 }
 
 //{thing 2a} : function that takes in an array and runs each word through the pigLatinWordConverter function (thing 2b)
@@ -46,7 +51,6 @@ const piglatinifyWholeSentence = array => {
 
     //return the resulting string
     document.getElementById('pigLatinOutput').innerHTML = pigLatinString;
-    
 }
 
 //{thing 2b} : function that turns individual words into piglatin (move first letter to end, add "ay")
@@ -74,27 +78,6 @@ const pigLatinWordConverter = inputWord => {
             }
         }
     }
-    
-    
-
-    // if (inputWord[1] === vowels[i]){
-    //     //if firstLetter is not any vowel, but the second letter is, take first letter out and store in variable
-    //     let firstLetter = inputWord.slice(0,1);
-    //     //slice out rest of word and store in variable
-    //     let restOfWord = inputWord.slice(1);
-    //     //add firstLetter and 'ay' to end of restOfWord and return word
-    //     pigLatinWithoutPunctuation = restOfWord.concat(firstLetter, `ay`);
-    // } 
-    
-    // if (inputWord[0] !== vowels[i] && inputWord[1] !== vowels )
-    //     //if first two letters are not vowels, take first two letters out and store in variable    
-    //     let firstTwoLetters = inputWord.slice(0,2);
-
-    //     //slice out rest of word and store in variable
-    //     let wordLessFirstTwo = inputWord.slice(2);
-
-    //     //add first two letters to end of the rest of the word and 'ay' to the end
-    //     pigLatinWithoutPunctuation = wordLessFirstTwo.concat(firstTwoLetters, 'ay');
 
     let cookedPork = rawPork;
     //loop through for punctuation
@@ -114,27 +97,6 @@ const pigLatinWordConverter = inputWord => {
             }
         }
     } return cookedPork;
-
-
-    //logic for adding 'way to word if it starts with vowel
-    // for (let i = 0; i < vowels.length; i++){
-    //     //check to see if the first letter matches any vowel
-    //     if (inputWord[0] === vowels[i]){
-    //         //add 'way' to the inputWord if there is a match
-    //         return inputWord.concat('way');
-    //     }
-
-    //     if (inputWord[1] === vowels[i]){
-    //         //if firstLetter is not any vowel, but the second letter is, take first letter out and store in variable
-    //         let firstLetter = inputWord.slice(0,1);
-    //         //slice out rest of word and store in variable
-    //         let restOfWord = inputWord.slice(1);
-    //         //add firstLetter and 'ay' to end of restOfWord and return word
-    //         return restOfWord.concat(firstLetter, `ay`);
-    //     }
-    // }
-    
-
 }
 
 

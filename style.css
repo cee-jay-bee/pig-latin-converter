@@ -1,0 +1,30 @@
+* {
+  text-align: center;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+#pigLatinInput {
+  width: 350px;
+}
+
+h1 {
+  font-size: 40px;
+  font-family: 'Sigmar One', cursive;
+}
+h2 {
+  font-size: 22px;
+}
+
+button {
+  background-color:#EEB5A7;
+  border: 0;
+  padding: 5px 10px 5px 10px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 15px;
+  font-family: 'Sigmar One', cursive;
+}
+
+#pigLatinOutput {
+  color:#EEB5A7;
+}
